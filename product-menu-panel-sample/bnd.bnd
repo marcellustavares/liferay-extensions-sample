@@ -1,0 +1,3 @@
+Bundle-Name: Liferay Custom Product Menu Sample Panel
+Bundle-SymbolicName: com.liferay.product.menu.sample
+Bundle-Version: 1.0.0
