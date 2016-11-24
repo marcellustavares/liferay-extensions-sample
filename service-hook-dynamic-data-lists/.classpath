@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="bin" kind="output"/>
+	<classpathentry path="src/main/java" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/" kind="con"/>
+	<classpathentry path="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/com.liferay.portal/com.liferay.portal.kernel/2.0.0/2b7c4bb22f87dcf60ccf05d45c972f3944b8e447/com.liferay.portal.kernel-2.0.0.jar" kind="lib" sourcepath="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/com.liferay.portal/com.liferay.portal.kernel/2.0.0/5f91fc8c20afc9b5da91f0b8fd4faf7e2977591f/com.liferay.portal.kernel-2.0.0-sources.jar"/>
+	<classpathentry path="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/com.liferay/com.liferay.dynamic.data.lists.api/2.1.1/baf2a87160dc82f1e540655e4a7afc37aecea445/com.liferay.dynamic.data.lists.api-2.1.1.jar" kind="lib" sourcepath="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/com.liferay/com.liferay.dynamic.data.lists.api/2.1.1/71b2b0b5d11225c1751b210c3811e9d0b5ab2020/com.liferay.dynamic.data.lists.api-2.1.1-sources.jar"/>
+	<classpathentry path="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/com.liferay/com.liferay.dynamic.data.mapping.api/3.5.0/93e1251c12e1076372a091e1aae23bd1e9e35d0c/com.liferay.dynamic.data.mapping.api-3.5.0.jar" kind="lib" sourcepath="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/com.liferay/com.liferay.dynamic.data.mapping.api/3.5.0/e3b7846b6e56fd3b804c8fa9e583614ea0505af8/com.liferay.dynamic.data.mapping.api-3.5.0-sources.jar"/>
+	<classpathentry path="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.compendium/5.0.0/9d7a9c35591f6fa1c98ac85af32775c12361aee4/org.osgi.compendium-5.0.0.jar" kind="lib" sourcepath="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.compendium/5.0.0/3f5760f4c64374f86e4071adae75e0db055eec84/org.osgi.compendium-5.0.0-sources.jar"/>
+</classpath>

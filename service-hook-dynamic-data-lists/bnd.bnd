@@ -1,0 +1,4 @@
+Bundle-Name: Liferay Custom Dynamic Data Lists Service Override
+Bundle-SymbolicName: com.liferay.dynamic.data.lists.service.override
+Bundle-Version: 1.0.0
+-sources: true

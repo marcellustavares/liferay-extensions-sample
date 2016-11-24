@@ -1,0 +1,8 @@
+apply plugin: 'eclipse'
+
+dependencies {
+	compileOnly group: "com.liferay", name: "com.liferay.dynamic.data.lists.api", version: "2.1.1"
+	compileOnly group: "com.liferay", name: "com.liferay.dynamic.data.mapping.api", version: "3.5.0"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
+	compileOnly group: "org.osgi", name: "org.osgi.compendium", version: "5.0.0"
+}
