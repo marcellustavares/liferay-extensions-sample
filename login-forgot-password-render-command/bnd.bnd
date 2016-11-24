@@ -1,0 +1,3 @@
+Bundle-Name: Liferay Custom Login Forgot Password Extension
+Bundle-SymbolicName: com.liferay.login.extension
+Bundle-Version: 1.0.0
