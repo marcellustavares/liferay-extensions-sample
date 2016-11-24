@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="bin" kind="output"/>
+	<classpathentry path="src/main/java" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/" kind="con"/>
+	<classpathentry path="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/com.liferay.portal/com.liferay.portal.kernel/2.0.0/2b7c4bb22f87dcf60ccf05d45c972f3944b8e447/com.liferay.portal.kernel-2.0.0.jar" kind="lib" sourcepath="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/com.liferay.portal/com.liferay.portal.kernel/2.0.0/5f91fc8c20afc9b5da91f0b8fd4faf7e2977591f/com.liferay.portal.kernel-2.0.0-sources.jar"/>
+	<classpathentry path="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/javax.ws.rs/javax.ws.rs-api/2.0.1/104e9c2b5583cfcfeac0402316221648d6d8ea6b/javax.ws.rs-api-2.0.1.jar" kind="lib" sourcepath="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/javax.ws.rs/javax.ws.rs-api/2.0.1/a20db7429fd8dfff74335ec867472b71c345049b/javax.ws.rs-api-2.0.1-sources.jar"/>
+	<classpathentry path="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.service.component.annotations/1.3.0/ef17ec0e7f73cd144599da108d72a24285d1f5d5/org.osgi.service.component.annotations-1.3.0.jar" kind="lib" sourcepath="/Users/Marcellus/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.service.component.annotations/1.3.0/987e7f0748a883a66952dc6cc5fefd6e97ab7f84/org.osgi.service.component.annotations-1.3.0-sources.jar"/>
+</classpath>
