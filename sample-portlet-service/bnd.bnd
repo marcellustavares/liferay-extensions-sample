@@ -1,0 +1,5 @@
+Bundle-Name: Liferay Custom Sample Portlet Service
+Bundle-SymbolicName: com.liferay.sample.portlet.service
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.sample.portlet.service
+-sources: true

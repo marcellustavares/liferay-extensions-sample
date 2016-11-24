@@ -1,0 +1,4 @@
+Bundle-Name: Liferay Custom Sample Portlet Service Extension
+Bundle-SymbolicName: com.liferay.sample.portlet.service.extension
+Bundle-Version: 1.0.0
+-sources: true
