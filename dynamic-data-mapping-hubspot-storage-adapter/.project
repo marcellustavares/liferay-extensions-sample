@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>dynamic-data-mapping-hubspot-storage-adapter</name>
+	<comment>Liferay Dynamic Data Mapping Hubspot Storage Adapter</comment>
+	<projects/>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<linkedResources/>
+</projectDescription>
