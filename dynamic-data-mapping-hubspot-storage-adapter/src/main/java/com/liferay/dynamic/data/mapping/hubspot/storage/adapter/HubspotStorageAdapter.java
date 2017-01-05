@@ -14,43 +14,37 @@
 
 package com.liferay.dynamic.data.mapping.hubspot.storage.adapter;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
-import jodd.http.HttpRequest;
-import jodd.http.HttpResponse;
-
-import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.BaseStorageAdapter;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.storage.StorageAdapter;
 import com.liferay.dynamic.data.mapping.storage.StorageAdapterRegistry;
+import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
-import com.liferay.portal.kernel.util.MapUtil;
+
+import java.util.Locale;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+
+import jodd.http.HttpRequest;
+import jodd.http.HttpResponse;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Marcellus Tavares
  */
 @Component(
-	property = {
-		"baseURL=https://forms.hubspot.com/uploads/form/v2/",
-		"portalId=299703",
-		"formId=142c2345-6626-4995-8206-b69d066862fd",
-	},
+	configurationPid = "com.liferay.dynamic.data.mapping.storage.HubspotStorageAdapterConfiguration",
+	configurationPolicy = ConfigurationPolicy.REQUIRE,
 	service = StorageAdapter.class
 )
 public class HubspotStorageAdapter extends BaseStorageAdapter {
@@ -58,6 +52,17 @@ public class HubspotStorageAdapter extends BaseStorageAdapter {
 	@Override
 	public String getStorageType() {
 		return "hubspot";
+	}
+
+	@Activate
+	@Modified
+	protected void activate(Map<String, Object> properties) {
+		_configuration = ConfigurableUtil.createConfigurable(
+			HubspotStorageAdapterConfiguration.class, properties);
+
+		_url =
+			_configuration.url() + _configuration.portalId() + "/" +
+				_configuration.formGuid();
 	}
 
 	@Override
@@ -115,22 +120,24 @@ public class HubspotStorageAdapter extends BaseStorageAdapter {
 
 	protected void submitRequest(DDMFormValues ddmFormValues) {
 		CompletableFuture.supplyAsync(new SenderSupplier(ddmFormValues))
-						 .thenAccept(
+						.thenAccept(
 								response -> {
 									if (_log.isDebugEnabled()) {
-										_log.info("Response received with status code  " + response.statusCode());
+										_log.info(
+											"Response received with status code  " + response.statusCode());
 									}
 								});
 	}
 
-	@Activate
-	protected void activate(Map<String, Object> properties) {
-		String baseURL = MapUtil.getString(properties, "baseURL");
-		String portalId = MapUtil.getString(properties, "portalId");
-		String formId = MapUtil.getString(properties, "formId");
+	private static final Log _log = LogFactoryUtil.getLog(
+		HubspotStorageAdapter.class);
 
-		_url = baseURL + portalId + "/" + formId;
-	}
+	private static String _url;
+
+	private volatile HubspotStorageAdapterConfiguration _configuration;
+
+	@Reference
+	private StorageAdapterRegistry _storageAdapterRegistry;
 
 	private static class SenderSupplier implements Supplier<HttpResponse> {
 
@@ -147,27 +154,19 @@ public class HubspotStorageAdapter extends BaseStorageAdapter {
 					.collect(
 						Collectors.toMap(
 								DDMFormFieldValue::getName,
-								ddmFormFieldValue -> ddmFormFieldValue.getValue().getString(_locale))
-					);
+								ddmFormFieldValue -> ddmFormFieldValue.getValue().getString(_locale)));
 
 			if (_log.isDebugEnabled()) {
-				_log.info("Submitting request " + formMap);
+				_log.info(
+					String.format("Submitting data %s to %s", formMap, _url));
 			}
 
 			return HttpRequest.post(_url).form(formMap).send();
 		}
 
-		private Locale _locale;
 		private DDMFormValues _ddmFormValues;
+		private Locale _locale;
 
 	}
-
-	private static final Log _log = LogFactoryUtil.getLog(
-		HubspotStorageAdapter.class);
-
-	@Reference
-	private StorageAdapterRegistry _storageAdapterRegistry;
-
-	private static String _url;
 
 }
